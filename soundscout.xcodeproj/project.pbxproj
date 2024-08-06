@@ -11,6 +11,16 @@
 		B9B1F1F72C623BCD00912EC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B1F1F62C623BCD00912EC3 /* ContentView.swift */; };
 		B9B1F1F92C623BCF00912EC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F1F82C623BCF00912EC3 /* Assets.xcassets */; };
 		B9B1F1FC2C623BCF00912EC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F1FB2C623BCF00912EC3 /* Preview Assets.xcassets */; };
+		B9B1F2102C623E4F00912EC3 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F2072C623E4F00912EC3 /* Inter-SemiBold.ttf */; };
+		B9B1F2112C623E4F00912EC3 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F2082C623E4F00912EC3 /* Inter-Medium.ttf */; };
+		B9B1F2122C623E4F00912EC3 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F2092C623E4F00912EC3 /* Inter-Thin.ttf */; };
+		B9B1F2132C623E4F00912EC3 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F20A2C623E4F00912EC3 /* Inter-Regular.ttf */; };
+		B9B1F2142C623E4F00912EC3 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F20B2C623E4F00912EC3 /* Inter-Black.ttf */; };
+		B9B1F2152C623E4F00912EC3 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F20C2C623E4F00912EC3 /* Inter-ExtraBold.ttf */; };
+		B9B1F2162C623E4F00912EC3 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F20D2C623E4F00912EC3 /* Inter-Bold.ttf */; };
+		B9B1F2172C623E4F00912EC3 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F20E2C623E4F00912EC3 /* Inter-ExtraLight.ttf */; };
+		B9B1F2182C623E4F00912EC3 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B1F20F2C623E4F00912EC3 /* Inter-Light.ttf */; };
+		B9B1F21A2C623E6800912EC3 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B1F2192C623E6800912EC3 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +29,17 @@
 		B9B1F1F62C623BCD00912EC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B9B1F1F82C623BCF00912EC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9B1F1FB2C623BCF00912EC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B9B1F2062C623D9300912EC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B9B1F2072C623E4F00912EC3 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		B9B1F2082C623E4F00912EC3 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		B9B1F2092C623E4F00912EC3 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		B9B1F20A2C623E4F00912EC3 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		B9B1F20B2C623E4F00912EC3 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		B9B1F20C2C623E4F00912EC3 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		B9B1F20D2C623E4F00912EC3 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		B9B1F20E2C623E4F00912EC3 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		B9B1F20F2C623E4F00912EC3 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		B9B1F2192C623E6800912EC3 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +72,14 @@
 		B9B1F1F32C623BCD00912EC3 /* soundscout */ = {
 			isa = PBXGroup;
 			children = (
+				B9B1F21B2C623F3600912EC3 /* New Group */,
+				B9B1F2062C623D9300912EC3 /* Info.plist */,
 				B9B1F1F42C623BCD00912EC3 /* soundscoutApp.swift */,
-				B9B1F1F62C623BCD00912EC3 /* ContentView.swift */,
+				B9B1F2042C623D4400912EC3 /* Views */,
+				B9B1F2032C623D3A00912EC3 /* ViewModels */,
+				B9B1F2022C623D3200912EC3 /* Models */,
 				B9B1F1F82C623BCF00912EC3 /* Assets.xcassets */,
+				B9B1F2052C623D4F00912EC3 /* Fonts */,
 				B9B1F1FA2C623BCF00912EC3 /* Preview Content */,
 			);
 			path = soundscout;
@@ -65,6 +91,52 @@
 				B9B1F1FB2C623BCF00912EC3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B9B1F2022C623D3200912EC3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B9B1F2032C623D3A00912EC3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B9B1F2042C623D4400912EC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B9B1F1F62C623BCD00912EC3 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B9B1F2052C623D4F00912EC3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B9B1F2192C623E6800912EC3 /* Font.swift */,
+				B9B1F20B2C623E4F00912EC3 /* Inter-Black.ttf */,
+				B9B1F20D2C623E4F00912EC3 /* Inter-Bold.ttf */,
+				B9B1F20C2C623E4F00912EC3 /* Inter-ExtraBold.ttf */,
+				B9B1F20E2C623E4F00912EC3 /* Inter-ExtraLight.ttf */,
+				B9B1F20F2C623E4F00912EC3 /* Inter-Light.ttf */,
+				B9B1F2082C623E4F00912EC3 /* Inter-Medium.ttf */,
+				B9B1F20A2C623E4F00912EC3 /* Inter-Regular.ttf */,
+				B9B1F2072C623E4F00912EC3 /* Inter-SemiBold.ttf */,
+				B9B1F2092C623E4F00912EC3 /* Inter-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B9B1F21B2C623F3600912EC3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +197,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B1F2112C623E4F00912EC3 /* Inter-Medium.ttf in Resources */,
+				B9B1F2172C623E4F00912EC3 /* Inter-ExtraLight.ttf in Resources */,
+				B9B1F2102C623E4F00912EC3 /* Inter-SemiBold.ttf in Resources */,
 				B9B1F1FC2C623BCF00912EC3 /* Preview Assets.xcassets in Resources */,
+				B9B1F2162C623E4F00912EC3 /* Inter-Bold.ttf in Resources */,
+				B9B1F2152C623E4F00912EC3 /* Inter-ExtraBold.ttf in Resources */,
+				B9B1F2122C623E4F00912EC3 /* Inter-Thin.ttf in Resources */,
+				B9B1F2132C623E4F00912EC3 /* Inter-Regular.ttf in Resources */,
+				B9B1F2182C623E4F00912EC3 /* Inter-Light.ttf in Resources */,
 				B9B1F1F92C623BCF00912EC3 /* Assets.xcassets in Resources */,
+				B9B1F2142C623E4F00912EC3 /* Inter-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +220,7 @@
 			files = (
 				B9B1F1F72C623BCD00912EC3 /* ContentView.swift in Sources */,
 				B9B1F1F52C623BCD00912EC3 /* soundscoutApp.swift in Sources */,
+				B9B1F21A2C623E6800912EC3 /* Font.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +357,7 @@
 				DEVELOPMENT_TEAM = R3R9WPW43M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = soundscout/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +387,7 @@
 				DEVELOPMENT_TEAM = R3R9WPW43M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = soundscout/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
