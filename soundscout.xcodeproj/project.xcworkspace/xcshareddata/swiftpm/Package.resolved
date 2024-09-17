@@ -1,0 +1,24 @@
+{
+  "originHash" : "792ea1fe13bbbdfea486ad698680476477e5f736d0e369b5989f533610d313f8",
+  "pins" : [
+    {
+      "identity" : "marqueetext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/joekndy/MarqueeText.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "e18d514455563ad00581e0d825146c6f15b1c6c4"
+      }
+    },
+    {
+      "identity" : "musadorakit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rryam/MusadoraKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2a476cca9f5dc79401109bab770ac275bdc88ceb"
+      }
+    }
+  ],
+  "version" : 3
+}
