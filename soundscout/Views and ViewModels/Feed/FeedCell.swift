@@ -13,7 +13,7 @@ struct FeedCell: View {
     
     @EnvironmentObject private var viewModel: FeedViewModel
     
-    let song: Song
+    let song: Track
     let url: URL
     let player: AVPlayer
     
@@ -34,7 +34,19 @@ struct FeedCell: View {
             }
         }
         .onTapGesture {
-            viewModel.togglePlayback()
+            withAnimation {
+                viewModel.togglePlayback()
+            }
+        }
+        .overlay {
+            playIcon
         }
     }
+    
+    @ViewBuilder private var playIcon: some View {
+        if viewModel.isPaused {
+            Image("play")
+        }
+    }
+    
 }

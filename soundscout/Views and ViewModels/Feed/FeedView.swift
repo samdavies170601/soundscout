@@ -39,7 +39,7 @@ struct FeedView: View {
         
         .onAppear {
             Task {
-                await viewModel.getFeedContent()
+                await viewModel.getContent()
             }
             viewModel.play()
             loopAudio()

@@ -10,6 +10,8 @@
 		B913D6D52C70FDE50067909F /* DefaultImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913D6D42C70FDE50067909F /* DefaultImage.swift */; };
 		B9155DE12C64EFEE00BF18CE /* ClearBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9155DE02C64EFEE00BF18CE /* ClearBackground.swift */; };
 		B9155DEA2C64F8D000BF18CE /* MarqueeText in Frameworks */ = {isa = PBXBuildFile; productRef = B9155DE92C64F8D000BF18CE /* MarqueeText */; };
+		B91561F42CA5AE94003EC4E1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91561F32CA5AE94003EC4E1 /* NetworkMonitor.swift */; };
+		B91561F92CA5C1C7003EC4E1 /* NetworkAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91561F82CA5C1C7003EC4E1 /* NetworkAlert.swift */; };
 		B921F3462C6E25AD001F36C7 /* not-like-us.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B921F3452C6E25AD001F36C7 /* not-like-us.mp4 */; };
 		B921F3492C6E25CB001F36C7 /* nuthin-but-a-g-thang.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B921F3482C6E25CB001F36C7 /* nuthin-but-a-g-thang.mp4 */; };
 		B921F34B2C6E25D8001F36C7 /* praise-the-lord-da-shine.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B921F34A2C6E25D8001F36C7 /* praise-the-lord-da-shine.mp4 */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		B913D6D42C70FDE50067909F /* DefaultImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImage.swift; sourceTree = "<group>"; };
 		B9155DE02C64EFEE00BF18CE /* ClearBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBackground.swift; sourceTree = "<group>"; };
+		B91561F32CA5AE94003EC4E1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		B91561F82CA5C1C7003EC4E1 /* NetworkAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAlert.swift; sourceTree = "<group>"; };
 		B921F3452C6E25AD001F36C7 /* not-like-us.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "not-like-us.mp4"; sourceTree = "<group>"; };
 		B921F3482C6E25CB001F36C7 /* nuthin-but-a-g-thang.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nuthin-but-a-g-thang.mp4"; sourceTree = "<group>"; };
 		B921F34A2C6E25D8001F36C7 /* praise-the-lord-da-shine.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "praise-the-lord-da-shine.mp4"; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 				B9B1F1F42C623BCD00912EC3 /* soundscoutApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		B91561F72CA5C1A1003EC4E1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B91561F32CA5AE94003EC4E1 /* NetworkMonitor.swift */,
+				B91561F82CA5C1C7003EC4E1 /* NetworkAlert.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B921F3472C6E25B5001F36C7 /* Videos */ = {
@@ -183,6 +196,7 @@
 			children = (
 				B9B1F21F2C624E6C00912EC3 /* General Assets */,
 				B96095672C91D39700FDD1A7 /* Authorization */,
+				B91561F72CA5C1A1003EC4E1 /* Network */,
 				B97F5C5F2C9492F000776B83 /* Feed */,
 			);
 			path = "Views and ViewModels";
@@ -326,9 +340,11 @@
 				B9A531BB2C72336400DDE692 /* FeedHeader.swift in Sources */,
 				B97F5C6C2C94936400776B83 /* AudioPlayer.swift in Sources */,
 				B96095692C91D43400FDD1A7 /* Authorizer.swift in Sources */,
+				B91561F92CA5C1C7003EC4E1 /* NetworkAlert.swift in Sources */,
 				B97F5C662C94934700776B83 /* FeedView.swift in Sources */,
 				B9B1F2242C624EBA00912EC3 /* CustomButton.swift in Sources */,
 				B9B1F21D2C62401400912EC3 /* AppColor.swift in Sources */,
+				B91561F42CA5AE94003EC4E1 /* NetworkMonitor.swift in Sources */,
 				B959E2F72C90850A00D7006E /* AuthorizationButton.swift in Sources */,
 				B97F5C642C94932A00776B83 /* FeedViewModel.swift in Sources */,
 				B9B1F1F52C623BCD00912EC3 /* soundscoutApp.swift in Sources */,

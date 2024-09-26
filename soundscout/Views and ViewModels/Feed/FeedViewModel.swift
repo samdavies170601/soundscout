@@ -18,42 +18,50 @@ final class FeedViewModel: ObservableObject {
     
     // MARK: - Generating Feed Content
     
-    /// Stores tuples consisting of `Song` and the `URL` of a `PreviewAsset` of either the songs `MusicVideo` or audio.
-    @Published var content = [(Song, URL)]()
+    /// Store tuples consisting of `Track` and the `URL` of a `PreviewAsset` of the track's audio.
+    @Published var content = [(Track, URL)]()
     
-//    func getDefaultRecommendations() async -> Playlist? {
-//        do {
-//            let recommendations = try await MRecommendation.default(limit: 1)
-//            guard let playlist = recommendations.first?.playlists.first else { return nil }
-//        
-//            return await getDetailedPlaylist(for: playlist)
-//        } catch {
-//            print(error)
-//        }
-//        return nil
-//    }
+    /// Single recommendation item.
+    private var defaultRecommendationItem: MRecommendationItem?
     
-//    private func getDetailedPlaylist(for playlist: Playlist) async -> Playlist {
-//        do {
-//            let detailedPlaylist = try await playlist.with(.entries)
-//        } catch {
-//            print(error)
-//        }
-//    }
-    
-    private func getSuggestedSongs() async -> MusicItemCollection<Song> {
+    /// Get a `MRecommendationItem` from the default recommendation.
+    private func getDefaultRecommendationItem() async {
         do {
-            let request = MusicCatalogSearchRequest(term: "Snoop Dogg", types: [Song.self])
-            let response = try await request.response()
-            
-            return response.songs
+            let defaultRecommendation = try await MRecommendation.default(limit: 1)
+            defaultRecommendationItem = defaultRecommendation.first
         } catch {
             print(error)
-            fatalError("Could not generate suggested content for the feed.")
         }
     }
     
-//    /// Gets the `URL` for the `MusicVideo` preview, if it exists.
+    /// Get recommended songs from the `currentRecommendation` item.
+    ///
+    ///
+    /// This method returns a collection of `Tracks` from the track list of each `Playlist` in the current recommendation item in the `defaultRecommendations` collection.
+    private func getRecommendations() async -> Tracks {
+        var recommendations = Tracks()
+        guard let defaultRecommendationItem = defaultRecommendationItem else { return recommendations }
+        
+        for playlist in defaultRecommendationItem.playlists {
+            if let tracks = await getTrackListing(from: playlist) {
+                recommendations += tracks
+            }
+        }
+        return recommendations
+    }
+    
+    /// Get the collection of tracks from a playlist.
+    /// - Parameter playlist: The playlist to get the tracks from.
+    /// - Returns: The collection of tracks.
+    private func getTrackListing(from playlist: Playlist) async -> Tracks? {
+        let detailedPlaylist = try? await playlist.with(.tracks)
+        if let tracks = detailedPlaylist?.tracks {
+            return tracks
+        }
+        return nil
+    }
+    
+//    /// Get the `URL` for the `MusicVideo` preview, if it exists.
 //    /// - Parameter song: The `Song` to get the `URL` for.
 //    /// - Returns: Returns either the `URL` for the `PreviewAsset` or `nil`.
 //    private func getPreviewMusicVideoURL(from song: Song) async -> URL? {
@@ -67,49 +75,34 @@ final class FeedViewModel: ObservableObject {
 //        }
 //    }
     
-    /// Gets the `URL` for the audio preview, if it exists.
-    /// - Parameter song: The `Song` to get the `URL` for.
-    /// - Returns: Returns either the `URL` for the `PreviewAsset` or `nil`.
-    private func getPreviewAudioURL(from song: Song) -> URL? {
-        guard let previewAudioURL = song.previewAssets?.first?.url else { return nil }
-        return previewAudioURL
+    /// Get the `URL` for preview asset relating to the track.
+    /// - Parameter track: The track to get the preview asset for.
+    /// - Returns: Returns either the `URL` for the preview asset or `nil`.
+    private func getPreviewURL(from track: Track) -> URL? {
+        guard let previewURL = track.previewAssets?.first?.url else { return nil }
+        
+        // `Track` can either represent a `Song` (the URL for a song ends in ".m4a") or `MusicVideo` (the URL for a song ends in ".m4v")
+        let urlString = previewURL.absoluteString
+        if urlString.last == "a" {
+            return previewURL
+        } else {
+            return nil
+        }
     }
     
-    /// Gets the content for the feed.
-    @MainActor func getFeedContent() async {
-        let suggestedSongs = await getSuggestedSongs()
-        for song in suggestedSongs {
-            if let previewAudioURL = getPreviewAudioURL(from: song) {
-                content.append((song, previewAudioURL))
+    /// Get the content for the feed.
+    @MainActor func getContent() async {
+        await getDefaultRecommendationItem()
+        let recommendations = await getRecommendations()
+        for track in recommendations {
+            if let previewURL = getPreviewURL(from: track) {
+                content.append((track, previewURL))
             }
         }
         logger.info("\(self.content)")
     }
     
-//    @MainActor func getContent() async {
-//        let playlist = await getDefaultRecommendations()
-//        guard let playlist = playlist else { return }
-//        
-//        for entry in playlist.entries ?? [] {
-//            let song = entry.item as?
-//            
-//            
-//            if let song = entry.item as Song {
-//                let song = item as? Song
-//                if let song = song {
-//                    
-//                }
-//            }
-//            
-//            
-//            let song = entry.item as? Song?
-//            if let previewAudioURL = getPreviewAudioURL(from: song) {
-//                content.append(entry, )
-//            }
-//        }
-//    }
-    
-    // MARK: - Playback Control
+    // MARK: - Controlling Playback
     
     /// The current song that the user is on.
     @Published var currentSongID: String?
@@ -121,7 +114,7 @@ final class FeedViewModel: ObservableObject {
     /// The single `AVPayer` for the feed.
     let player = AVPlayer()
     
-    /// Used to begin playback for the initial song in the feed.
+    /// Use to begin playback for the initial song in the feed.
     func initiatePlayback() {
         guard currentSongID == nil,
               let firstSong = content.first,
@@ -131,7 +124,7 @@ final class FeedViewModel: ObservableObject {
         player.replaceCurrentItem(with: playerItem)
     }
     
-    /// Used to toggle the state of playback.
+    /// Use to toggle the state of playback.
     func togglePlayback() {
         switch player.timeControlStatus {
             case .paused:
@@ -147,7 +140,7 @@ final class FeedViewModel: ObservableObject {
         }
     }
     
-    /// Used to initiate playback of the current song.
+    /// Use to initiate playback of the current song.
     /// - Parameter id: The identifier of the current song.
     ///
     /// The function gets the tuple `(Song, URL)` for the current song, empties `player`, then initiates playback using the `URL` of the current song.
@@ -159,7 +152,7 @@ final class FeedViewModel: ObservableObject {
         player.replaceCurrentItem(with: playerItem)
     }
     
-    /// Calls `play()` on the player.
+    /// Call `play()` on the player.
     func play() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
@@ -169,12 +162,12 @@ final class FeedViewModel: ObservableObject {
         player.play()
     }
     
-    /// Calls `pause()` on the player.
+    /// Call `pause()` on the player.
     func pause() {
         player.pause()
     }
     
-    /// Gets the duration of the current song.
+    /// Get the duration of the current song.
     @MainActor func getCurrentSongDuration() async {
         let duration = try? await player.currentItem?.asset.load(.duration)
         if let duration = duration {
@@ -185,10 +178,10 @@ final class FeedViewModel: ObservableObject {
         logger.info("\(self.currentSongDuration)")
     }
     
-    /// Gets the details for a passed song.
+    /// Get the details for a passed song.
     /// - Parameter song: The song to get details for.
     /// - Returns: The song details.
-    func getSongDetails(for song: Song) -> String {
+    func getSongDetails(for song: Track) -> String {
         if let albumTitle = song.albumTitle {
             return "\(song.artistName) · \(albumTitle)"
         } else {

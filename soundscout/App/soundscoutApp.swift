@@ -11,7 +11,11 @@ import SwiftUI
 @main
 struct soundscoutApp: App {
     
+    // Authorization
     @StateObject private var authorizer = Authorizer()
+    
+    // Network Monitoring
+    @StateObject private var monitor = NetworkMonitor()
     
     var body: some Scene {
         WindowGroup {
@@ -24,7 +28,11 @@ struct soundscoutApp: App {
                     AuthorizationView()
                         .environmentObject(authorizer)
                 }
+                .overlay {
+                    if !monitor.isConnected {
+                        NetworkAlert(message: monitor.alertMessage)
+                    }
+                }
         }
     }
-    
 }

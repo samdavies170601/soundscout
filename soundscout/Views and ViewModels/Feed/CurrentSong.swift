@@ -12,7 +12,7 @@ import SwiftUI
 
 struct CurrentSong: View {
     
-    let song: Song
+    let song: Track
     @EnvironmentObject private var viewModel: FeedViewModel
     
     var body: some View {
@@ -29,7 +29,7 @@ struct CurrentSong: View {
             }
             .padding(24)
         }
-        .frame(width: 366, height: 163)
+        .frame(width: 366, height: 137)
         .padding(.horizontal, 16)
         .padding(.bottom, 32)
     }
