@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,11 +43,22 @@
 		B9B6B2DA2C98915A000B9FD4 /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6B2D92C98915A000B9FD4 /* BlankView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B91562022CA5DA84003EC4E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9B1F1E92C623BCD00912EC3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9B1F1F02C623BCD00912EC3;
+			remoteInfo = soundscout;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		B913D6D42C70FDE50067909F /* DefaultImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImage.swift; sourceTree = "<group>"; };
 		B9155DE02C64EFEE00BF18CE /* ClearBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBackground.swift; sourceTree = "<group>"; };
 		B91561F32CA5AE94003EC4E1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		B91561F82CA5C1C7003EC4E1 /* NetworkAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAlert.swift; sourceTree = "<group>"; };
+		B91561FE2CA5DA84003EC4E1 /* soundscoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = soundscoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B921F3452C6E25AD001F36C7 /* not-like-us.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "not-like-us.mp4"; sourceTree = "<group>"; };
 		B921F3482C6E25CB001F36C7 /* nuthin-but-a-g-thang.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nuthin-but-a-g-thang.mp4"; sourceTree = "<group>"; };
 		B921F34A2C6E25D8001F36C7 /* praise-the-lord-da-shine.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "praise-the-lord-da-shine.mp4"; sourceTree = "<group>"; };
@@ -80,7 +91,18 @@
 		B9B6B2D92C98915A000B9FD4 /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B91561FF2CA5DA84003EC4E1 /* soundscoutTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = soundscoutTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		B91561FB2CA5DA84003EC4E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9B1F1EE2C623BCD00912EC3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				B9B1F1F32C623BCD00912EC3 /* soundscout */,
+				B91561FF2CA5DA84003EC4E1 /* soundscoutTests */,
 				B9B1F1F22C623BCD00912EC3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -167,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				B9B1F1F12C623BCD00912EC3 /* soundscout.app */,
+				B91561FE2CA5DA84003EC4E1 /* soundscoutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,6 +272,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B91561FD2CA5DA84003EC4E1 /* soundscoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B91562042CA5DA84003EC4E1 /* Build configuration list for PBXNativeTarget "soundscoutTests" */;
+			buildPhases = (
+				B91561FA2CA5DA84003EC4E1 /* Sources */,
+				B91561FB2CA5DA84003EC4E1 /* Frameworks */,
+				B91561FC2CA5DA84003EC4E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B91562032CA5DA84003EC4E1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B91561FF2CA5DA84003EC4E1 /* soundscoutTests */,
+			);
+			name = soundscoutTests;
+			packageProductDependencies = (
+			);
+			productName = soundscoutTests;
+			productReference = B91561FE2CA5DA84003EC4E1 /* soundscoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B9B1F1F02C623BCD00912EC3 /* soundscout */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9B1F1FF2C623BCF00912EC3 /* Build configuration list for PBXNativeTarget "soundscout" */;
@@ -276,9 +323,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					B91561FD2CA5DA84003EC4E1 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = B9B1F1F02C623BCD00912EC3;
+					};
 					B9B1F1F02C623BCD00912EC3 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -302,11 +353,19 @@
 			projectRoot = "";
 			targets = (
 				B9B1F1F02C623BCD00912EC3 /* soundscout */,
+				B91561FD2CA5DA84003EC4E1 /* soundscoutTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B91561FC2CA5DA84003EC4E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9B1F1EF2C623BCD00912EC3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,6 +390,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B91561FA2CA5DA84003EC4E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9B1F1ED2C623BCD00912EC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,7 +424,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B91562032CA5DA84003EC4E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9B1F1F02C623BCD00912EC3 /* soundscout */;
+			targetProxy = B91562022CA5DA84003EC4E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		B91562052CA5DA84003EC4E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3R9WPW43M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SamDavies.soundscoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/soundscout.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/soundscout";
+			};
+			name = Debug;
+		};
+		B91562062CA5DA84003EC4E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3R9WPW43M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SamDavies.soundscoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/soundscout.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/soundscout";
+			};
+			name = Release;
+		};
 		B9B1F1FD2C623BCF00912EC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -543,6 +655,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B91562042CA5DA84003EC4E1 /* Build configuration list for PBXNativeTarget "soundscoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B91562052CA5DA84003EC4E1 /* Debug */,
+				B91562062CA5DA84003EC4E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B9B1F1EC2C623BCD00912EC3 /* Build configuration list for PBXProject "soundscout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

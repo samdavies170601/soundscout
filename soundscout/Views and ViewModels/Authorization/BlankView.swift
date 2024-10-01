@@ -10,6 +10,7 @@ import SwiftUI
 struct BlankView: View {
     
     @EnvironmentObject private var authorizer: Authorizer
+    @EnvironmentObject private var feedViewModel: FeedViewModel
     
     var body: some View {
         NavigationStack {
@@ -19,6 +20,7 @@ struct BlankView: View {
             }
             .navigationDestination(isPresented: $authorizer.isAuthorized) {
                 FeedView()
+                    .environmentObject(feedViewModel)
             }
         }
     }

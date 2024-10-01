@@ -21,18 +21,47 @@ final class FeedViewModel: ObservableObject {
     /// Store tuples consisting of `Track` and the `URL` of a `PreviewAsset` of the track's audio.
     @Published var content = [(Track, URL)]()
     
+    @Published var fetchNextPlaylist = false
+    
+    /// Collection of `MRecommendationItem`.
+    private var defaultRecommendations: MRecommendations?
+    
     /// Single recommendation item.
     private var defaultRecommendationItem: MRecommendationItem?
     
-    /// Get a `MRecommendationItem` from the default recommendation.
-    private func getDefaultRecommendationItem() async {
+    private var currentPlaylistID: String?
+    
+    /// Load the `defaultRecommendations` collection.
+    ///
+    ///
+    /// This function fetches a collection of default recommendation items and sets `defaultRecommendationItem` to the first item of this collection.
+    private func loadDefaultRecommendations() async {
         do {
-            let defaultRecommendation = try await MRecommendation.default(limit: 1)
-            defaultRecommendationItem = defaultRecommendation.first
+            defaultRecommendations = try await MRecommendation.default(limit: 1)
+            getInitialDefaultRecommendationItem()
         } catch {
             print(error)
         }
     }
+    
+    /// Set the `defaultRecommendationItem` to the first item in the `defaultRecommendations` collection.
+    private func getInitialDefaultRecommendationItem() {
+        defaultRecommendationItem = defaultRecommendations?.first
+    }
+    
+    /// Get the next batch of recommendation items.
+    private func nextDefaultRecommendationItem() async {
+        do {
+            defaultRecommendations = try await defaultRecommendations?.nextBatch(limit: 1)
+        } catch {
+            print(error)
+        }
+    }
+    
+    ///
+//    private func nextPlaylist() {
+//        let currentPlaylistIndex =
+//    }
     
     /// Get recommended songs from the `currentRecommendation` item.
     ///
@@ -91,15 +120,24 @@ final class FeedViewModel: ObservableObject {
     }
     
     /// Get the content for the feed.
+    ///
+    ///
+    /// This is used to make the initial call to populate the `content` collection.
     @MainActor func getContent() async {
-        await getDefaultRecommendationItem()
+        await loadDefaultRecommendations()
         let recommendations = await getRecommendations()
         for track in recommendations {
             if let previewURL = getPreviewURL(from: track) {
                 content.append((track, previewURL))
             }
         }
-        logger.info("\(self.content)")
+        //logger.info("\(self.content)")
+    }
+    
+    @MainActor func moreContent() async {
+        guard let defaultRecommendationItem = defaultRecommendationItem else { return }
+        
+        
     }
     
     // MARK: - Controlling Playback
@@ -187,6 +225,45 @@ final class FeedViewModel: ObservableObject {
         } else {
             return song.artistName
         }
+    }
+    
+    // MARK: - Managing Feed State
+    
+    /// UserDefaults key to store the last viewed track.
+    private let key = "lastViewedTrackID"
+    
+    /// Get more content for the feed.
+    ///
+    ///
+    /// This is called in the `.onChange()` modifier relating to the change in scroll position. When the user has reached the third-last song in the feed, generate more content.
+    func trackFeedProgress() {
+        let contentSize = content.count
+        let currentTrackIndex = content.firstIndex { $0.0.id.rawValue == currentSongID }
+        if currentTrackIndex == (contentSize - 2) {
+            //moreContent()
+        }
+    }
+    
+    /// Save the last viewed track to UserDefaults.
+    func saveFeedProgress() {
+        // TODO: This is not a great looking line of code.
+        let lastViewedTrackID = content.first { $0.0.id.rawValue == currentSongID }?.0.id.rawValue
+        UserDefaults.standard.set(lastViewedTrackID, forKey: key)
+        
+        logger.info("Progress saved at \(lastViewedTrackID ?? "nil")")
+    }
+    
+    /// Resume progress from the last viewed track.
+    ///
+    ///
+    /// This function fetches `lastViewedTrackID` stored in UserDefaults, removes all the tracks in `content` before and including this last track.
+    func resumeFeedProgress() {
+        let lastViewedTrackID = UserDefaults.standard.string(forKey: key)
+        logger.info("Fetched track \(lastViewedTrackID ?? "nil") from UserDefaults")
+        let lastViewedTrackIndex = content.firstIndex { $0.0.id.rawValue == lastViewedTrackID }
+        guard let lastViewedTrackIndex = lastViewedTrackIndex else { return }
+        
+        content.removeSubrange(0...lastViewedTrackIndex)
     }
     
 }

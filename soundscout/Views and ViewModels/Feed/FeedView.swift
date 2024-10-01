@@ -11,7 +11,7 @@ import SwiftUI
 
 struct FeedView: View {
     
-    @StateObject private var viewModel = FeedViewModel()
+    @EnvironmentObject private var viewModel: FeedViewModel
     
     var body: some View {
         ScrollView {
@@ -40,12 +40,14 @@ struct FeedView: View {
         .onAppear {
             Task {
                 await viewModel.getContent()
+                viewModel.resumeFeedProgress()
             }
             viewModel.play()
             loopAudio()
         }
         .onChange(of: viewModel.currentSongID) { _, newValue in
             viewModel.play(using: newValue)
+            viewModel.trackFeedProgress()
         }
         .overlay(alignment: .top) {
             FeedHeader()
