@@ -123,15 +123,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		B91561F72CA5C1A1003EC4E1 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				B91561F32CA5AE94003EC4E1 /* NetworkMonitor.swift */,
-				B91561F82CA5C1C7003EC4E1 /* NetworkAlert.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		B921F3472C6E25B5001F36C7 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,30 +131,6 @@
 				B921F3482C6E25CB001F36C7 /* nuthin-but-a-g-thang.mp4 */,
 			);
 			path = Videos;
-			sourceTree = "<group>";
-		};
-		B96095672C91D39700FDD1A7 /* Authorization */ = {
-			isa = PBXGroup;
-			children = (
-				B96095682C91D43400FDD1A7 /* Authorizer.swift */,
-				B959E2FA2C90C39300D7006E /* AuthorizationView.swift */,
-				B959E2F62C90850A00D7006E /* AuthorizationButton.swift */,
-				B9B6B2D92C98915A000B9FD4 /* BlankView.swift */,
-			);
-			path = Authorization;
-			sourceTree = "<group>";
-		};
-		B97F5C5F2C9492F000776B83 /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				B97F5C632C94932A00776B83 /* FeedViewModel.swift */,
-				B97F5C652C94934700776B83 /* FeedView.swift */,
-				B97F5C672C94936400776B83 /* FeedCell.swift */,
-				B97F5C682C94936400776B83 /* AudioPlayer.swift */,
-				B9A531BA2C72336400DDE692 /* FeedHeader.swift */,
-				B9B1F23E2C626B3400912EC3 /* CurrentSong.swift */,
-			);
-			path = Feed;
 			sourceTree = "<group>";
 		};
 		B9AACF552C7B511B00A84EC3 /* Assets */ = {
@@ -200,8 +167,9 @@
 			children = (
 				B9B1F2062C623D9300912EC3 /* Info.plist */,
 				B913D6D22C70C20D0067909F /* App */,
-				B9B1F2042C623D4400912EC3 /* Views and ViewModels */,
 				B9AACF552C7B511B00A84EC3 /* Assets */,
+				B9E419A72CAC4D98000CCDD1 /* Base */,
+				B9E419A92CAC4DB8000CCDD1 /* Features */,
 			);
 			path = soundscout;
 			sourceTree = "<group>";
@@ -213,17 +181,6 @@
 				B921F3472C6E25B5001F36C7 /* Videos */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		B9B1F2042C623D4400912EC3 /* Views and ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				B9B1F21F2C624E6C00912EC3 /* General Assets */,
-				B96095672C91D39700FDD1A7 /* Authorization */,
-				B91561F72CA5C1A1003EC4E1 /* Network */,
-				B97F5C5F2C9492F000776B83 /* Feed */,
-			);
-			path = "Views and ViewModels";
 			sourceTree = "<group>";
 		};
 		B9B1F2052C623D4F00912EC3 /* Fonts */ = {
@@ -259,14 +216,89 @@
 			path = Inter;
 			sourceTree = "<group>";
 		};
-		B9B1F21F2C624E6C00912EC3 /* General Assets */ = {
+		B9E419A72CAC4D98000CCDD1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B9E419A82CAC4DAE000CCDD1 /* Views */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B9E419A82CAC4DAE000CCDD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B9155DE02C64EFEE00BF18CE /* ClearBackground.swift */,
 				B9B1F2232C624EBA00912EC3 /* CustomButton.swift */,
 				B913D6D42C70FDE50067909F /* DefaultImage.swift */,
 			);
-			path = "General Assets";
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B9E419A92CAC4DB8000CCDD1 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B9E419AA2CAC4DE1000CCDD1 /* Authorization */,
+				B9E419AE2CAC4E14000CCDD1 /* Feed */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B9E419AA2CAC4DE1000CCDD1 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B9E419AC2CAC4DF7000CCDD1 /* ViewModels */,
+				B9E419AB2CAC4DEB000CCDD1 /* Views */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B9E419AB2CAC4DEB000CCDD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B959E2FA2C90C39300D7006E /* AuthorizationView.swift */,
+				B959E2F62C90850A00D7006E /* AuthorizationButton.swift */,
+				B9B6B2D92C98915A000B9FD4 /* BlankView.swift */,
+				B91561F82CA5C1C7003EC4E1 /* NetworkAlert.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B9E419AC2CAC4DF7000CCDD1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B96095682C91D43400FDD1A7 /* Authorizer.swift */,
+				B91561F32CA5AE94003EC4E1 /* NetworkMonitor.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B9E419AE2CAC4E14000CCDD1 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				B9E419B02CAC4E2A000CCDD1 /* ViewModels */,
+				B9E419AF2CAC4E25000CCDD1 /* Views */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		B9E419AF2CAC4E25000CCDD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B97F5C652C94934700776B83 /* FeedView.swift */,
+				B97F5C672C94936400776B83 /* FeedCell.swift */,
+				B97F5C682C94936400776B83 /* AudioPlayer.swift */,
+				B9A531BA2C72336400DDE692 /* FeedHeader.swift */,
+				B9B1F23E2C626B3400912EC3 /* CurrentSong.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B9E419B02CAC4E2A000CCDD1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B97F5C632C94932A00776B83 /* FeedViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
